@@ -1,8 +1,6 @@
 const countries = [
-	{"country": "Россия", "capital": "Москва"},
-	{"country": "США", "capital": "Вашингтон"},
 	{"capital": "Амстердам", "country": "Нидерланды"},
-	{"capital": "Андорра-ла-Велья", "country": "Андорра"},
+	{"capital": "Андорра ла Велья", "country": "Андорра"},
 	{"capital": "Афины", "country": "Греция"},
 	{"capital": "Белград", "country": "Сербия"},
 	{"capital": "Берлин", "country": "Германия"},
@@ -12,7 +10,7 @@ const countries = [
 	{"capital": "Будапешт", "country": "Венгрия"},
 	{"capital": "Бухарест", "country": "Румыния"},
 	{"capital": "Вадуц", "country": "Лихтенштейн"},
-	{"capital": "Валетта", "country": "Мальта"},
+	{"capital": "Валлетта", "country": "Мальта"},
 	{"capital": "Варшава", "country": "Польша"},
 	{"capital": "Ватикан", "country": "Ватикан"},
 	{"capital": "Вена", "country": "Австрия"},
@@ -37,21 +35,26 @@ const countries = [
 	{"capital": "Рейкьявик", "country": "Исландия"},
 	{"capital": "Рига", "country": "Латвия"},
 	{"capital": "Рим", "country": "Италия"},
-	{"capital": "Сан-Марино", "country": "Сан-Марино"},
+	{"capital": "Сан Марино", "country": "Сан Марино"},
 	{"capital": "Сараево", "country": "Босния и Герцеговина"},
 	{"capital": "Скопье", "country": "Северная Македония"},
 	{"capital": "София", "country": "Болгария"},
 	{"capital": "Стокгольм", "country": "Швеция"},
-	{"capital": "Таллинн", "country": "Эстония"},
+	{"capital": "Таллин", "country": "Эстония"},
 	{"capital": "Тирана", "country": "Албания"},
 	{"capital": "Хельсинки", "country": "Финляндия"},
 ]
-
+let availableNumbers = [];
 let questionDiv = document.getElementById('question');
 let answerDiv = document.getElementById('answer');
 let box = document.getElementById('boxxy');
-let countryNumber;
-let answerIsCorrect;
+let countryNumber = null;
+let answerIsCorrect = false;
+let usedCountries = [];
+
+for (let i = 0; i < countries.length; i++) {
+	availableNumbers.push(i);
+}
 
 answerDiv.addEventListener("keypress", function (event) {
 	if (event.key === "Enter") {
@@ -64,17 +67,26 @@ answerDiv.addEventListener("keypress", function (event) {
 })
 
 function btnClick() {
+	if (availableNumbers.length === 0) {
+		document.getElementById('label').innerHTML++;
+		for (let i = 0; i < countries.length; i++) {
+			availableNumbers.push(i);
+		}
+	}
 	answerDiv.value = "";
 	box.style.backgroundColor = "grey";
-	countryNumber = Math.floor(Math.random() * (countries.length - 1));
+	let randomNumber = Math.floor(Math.random() * (availableNumbers.length));
+	countryNumber = availableNumbers[randomNumber];
 	let selectedCountry = countries[countryNumber]["country"]
 	questionDiv.innerHTML = selectedCountry;
+
 }
 
 function checkAnswer() {
 	if (answerDiv.value.toLowerCase() === countries[countryNumber]["capital"].toLowerCase()) {
 		box.style.backgroundColor = "green";
 		answerIsCorrect = true;
+		availableNumbers = availableNumbers.filter((value) => countryNumber !== value);
 	} else {
 		box.style.backgroundColor = "red";
 		answerIsCorrect = false;
