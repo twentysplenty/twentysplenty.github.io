@@ -1,46 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-	<meta http-equiv="Pragma" content="no-cache" />
-	<title>Страны для Алёночки</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-</head>
-<body>
-	<div class="container py-5">
-		<fieldset>
-			<span>Выберите штуки мира:</span>
-				<input type="checkbox" id="europe" name="europe" onchange="addPart(this)">
-				<label for="europe">Европа</label>
-				<input type="checkbox" id="asia" name="asia" onchange="addPart(this)">
-				<label for="asia">Азия</label>
-				<input type="checkbox" id="africa" name="africa" onchange="addPart(this)">
-				<label for="africa">Африка</label>
-				<input type="checkbox" id="america" name="america" onchange="addPart(this)">
-				<label for="america">Америка</label>
-				<input type="checkbox" id="oceania" name="oceania" onchange="addPart(this)">
-				<label for="oceania">Океания</label>
-		</fieldset>
-		<span class="pb-2" >Круг: </span>
-		<span class="pb-2" id="label">0</span>
-		<div class="pb-2" id="question">Нажмите Пуньк, чтобы получить страну</div>
-		<p><a class="btn btn-primary" id="knopa" onclick="btnClick()">Пуньк</a></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <title>Страны для Алёночки</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluent py-1">
+      <span class="pb-1">Круг: </span>
+      <span class="pb-1" id="label">0</span>
+    </div>
+    <div class="container py-5">
+      <div class="container pb-4">
+        <fieldset>
+          <span class="pb-2">Выберите штуки мира:</span>
+          <input
+            class="chbx"
+            type="checkbox"
+            id="europe"
+            name="europe"
+            onchange="addPart(this)"
+          />
+          <label for="europe">Европа</label>
+          <input
+            class="checkbox"
+            type="checkbox"
+            id="asia"
+            name="asia"
+            onchange="addPart(this)"
+          />
+          <label for="asia">Азия</label>
+          <input
+            class="chbx"
+            type="checkbox"
+            id="africa"
+            name="africa"
+            onchange="addPart(this)"
+          />
+          <label for="africa">Африка</label>
+          <input
+            class="chbx"
+            type="checkbox"
+            id="america"
+            name="america"
+            onchange="addPart(this)"
+          />
+          <label for="america">Америка</label>
+          <input
+            class="chbx"
+            type="checkbox"
+            id="oceania"
+            name="oceania"
+            onchange="addPart(this)"
+          />
+          <label for="oceania">Океания</label>
+        </fieldset>
+      </div>
+      <div class="pb-2" id="question">Нажмите Пуньк, чтобы получить страну</div>
+      <p>
+        <a class="btn btn-primary" id="knopa" onclick="btnClick()">Пуньк</a>
+      </p>
 
-		<form>
-			<div class="mb-3">
-				<input type="text" class="form-control" id="answer" autocomplete="off">
-			</div>
-			<a  id="answerButton" class="btn btn-primary" onclick="checkAnswer()">Submit</a>
-		</form>
+      <form>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="answer"
+            autocomplete="off"
+          />
+        </div>
+      </form>
 
-		<div id="boxxy" style="margin-top: 25px; width: 500px; height: 100px; background-color:grey"></div>
-	</div>
+      <div id="result-div" onclick="showAnswer()">
+        Результат: <span id="result-emoji"></span>
+      </div>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
 
-	<script src="./index.js">
-	</script>
-
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
