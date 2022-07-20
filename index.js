@@ -270,7 +270,6 @@ function btnClick() {
     for (let i = 0; i < countries.length; i++) {
       availableNumbers.push(i);
     }
-    buttonWasPressed = true;
   }
 
   answerDiv.value = "";
@@ -279,6 +278,7 @@ function btnClick() {
   let selectedCountry = countries[countryNumber]["country"];
   questionDiv.innerHTML = selectedCountry;
   answerDiv.focus();
+  buttonWasPressed = true;
 }
 
 function checkAnswer() {

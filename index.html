@@ -14,16 +14,21 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <style>
+      body {
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
     <div class="container-fluent py-1">
       <span class="pb-1">Круг: </span>
       <span class="pb-1" id="label">0</span>
     </div>
-    <div class="container py-5">
+    <div class="container">
       <div class="container pb-4">
-        <fieldset>
-          <span class="pb-2">Выберите штуки мира:</span>
+        <div class="pb-2">Выберите штуки мира:</div>
+        <fieldset class="pb-5">
           <input
             class="chbx"
             type="checkbox"
@@ -65,25 +70,28 @@
           />
           <label for="oceania">Океания</label>
         </fieldset>
-      </div>
-      <div class="pb-2" id="question">Нажмите Пуньк, чтобы получить страну</div>
-      <p>
-        <a class="btn btn-primary" id="knopa" onclick="btnClick()">Пуньк</a>
-      </p>
 
-      <form>
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="answer"
-            autocomplete="off"
-          />
+        <div class="pb-2" id="question">
+          Нажмите Пуньк, чтобы получить страну
         </div>
-      </form>
+        <p>
+          <a class="btn btn-primary" id="knopa" onclick="btnClick()">Пуньк</a>
+        </p>
 
-      <div id="result-div" onclick="showAnswer()">
-        Результат: <span id="result-emoji"></span>
+        <form>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="answer"
+              autocomplete="off"
+            />
+          </div>
+        </form>
+
+        <div id="result-div" onclick="showAnswer()">
+          Результат: <span id="result-emoji"></span>
+        </div>
       </div>
     </div>
 
